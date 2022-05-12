@@ -14,13 +14,12 @@ Tenha cuidado para não renomear a extensão em .md arquivos, ou quaisquer outro
 
 # Comandos SQL para modelagem física
 
-## Criar banco de dados
+## Criar banco de dados (utf8 setar caracteres latinos)
 CREATE DATABASE vendas_marcia CHARACTER SET utf8mb4;
 
 
 ## Entrar no BD criado
 USE DATABASE vendas_marcia;
-
 ## Criar a tabela fabricante - dentro desses parâmetro entram os campos / colunas.
 ## tipo de dados, se é null, auto increment, e chave primária para que o valor seja único
 CREATE TABLE fabricante(
@@ -41,7 +40,8 @@ CREATE TABLE produto(
 
 
 ## Alterando a tabela para criar um relacionamento por meio da chave estrangeira
-##     ADD CONSTRAINT - é como se fosse uma restrição.
+##  ADD CONSTRAINT - é como se fosse uma restrição.
+## essas 3 últimas linhas ligam a tabela produtos atraves do fabricante ID , com a chave primária em outra tabela.
 
 ALTER TABLE produto
     ADD CONSTRAINT fk_produto_fabricante
