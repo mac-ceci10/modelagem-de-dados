@@ -83,6 +83,7 @@ VALUES('Geladeira',1500,10,'Refrigerador Frost-free com acesso à Internet das C
 ## SELECT - Consultas - buscar dados nas tabelas.
 
 SELECT nome, preco FROM produto;
+
 SELECT preco, nome FROM produto;
 
 SELECT nome, preco FROM produto  WHERE preco < 3000;
@@ -108,11 +109,43 @@ ORDER BY preco DESC;
 SELECT nome, preco, quantidade, fabricante_id FROM produto; 
 
 SELECT 
-        produto.nome,
-        fabricante.nome,
+        produto.nome AS Produto,
+        fabricante.nome AS Fabricante,
         produto.preco,
         produto.quantidade
 FROM produto INNER JOIN fabricante
 ON produto.fabricante_id = fabricante.id;
+
+
+-- INNER JOIN: é um comando que permite trazer informações de duas ou mais tabelas, desde que elas tenham um relacionamento.
+-- ON: comando para indicar a maneira como as tabelas são juntadas.
+-- AS: comando que permite dar um apelido para as colunas.
+-- também é possível usar outros comandos nessas consultas como ORDER BY DESC.
+
+SELECT 
+        produto.nome AS Produto,
+        fabricante.nome AS Fabricante,
+        produto.preco,
+        produto.quantidade
+FROM produto INNER JOIN fabricante
+ON produto.fabricante_id = fabricante.id
+WHERE quantidade > 1;
+
+## UPDATE
+
+UPDATE fabricante SET nome= 'LG do Brasil'
+WHERE id=4; -- Sempre use WHERE, Sempre DÊ UMA CONDIÇÃO
+
+
+## DELETE
+
+DELETE FROM produto
+WHERE id=5; -- SEMPRE USE WHERE, SEMPRE DÊ UMA CONDIÇÃO
+
+
+
+
+
+
 
 
